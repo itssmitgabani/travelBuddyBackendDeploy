@@ -1,0 +1,41 @@
+import mongoose, { Schema } from "mongoose";
+const AirlineSchema = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  img: {
+    type: String,
+    required: true,
+    default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOy82yDB7J2umGoJgo03iwxwDmpXTPfjzDyQ9BiiP7puTOh548G20OhHw6dfGc-LaQmrc&usqp=CAU"
+  },
+  airlinename: {
+    type: String,
+    required: true,
+    default:" ",
+  },
+  status:{
+    type:Boolean,
+    default:true
+  },
+  verified: {
+    type: Boolean,
+    default: false,
+  },
+  flights:{
+    type:[Schema.Types.ObjectId],
+    ref:"Flight"
+  }
+},{ timestamps: true }
+);
+
+export default mongoose.model("Airline", AirlineSchema)
