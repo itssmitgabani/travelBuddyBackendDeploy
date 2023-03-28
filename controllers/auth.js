@@ -71,7 +71,7 @@ export const adminPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.ADMIN_URL}/passwordReset?token=${token.token}&id=${admin._id}`;
-    await sendEmail(admin.email, "Verify Email", message);
+    await sendEmail(admin.email, "Forgot Password", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -108,7 +108,7 @@ export const adminResetPassword = async (req, res, next) => {
       { new: true }
     );
 
-    await sendEmail(admin.email, "Verify Email", "password changed successfully!");
+    await sendEmail(admin.email, "Success", "password changed successfully!");
 
     await token.deleteOne();
     res.status(200).send("password changed successfully!");
@@ -232,7 +232,7 @@ export const airlinePassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.AIRLINE_URL}/passwordReset?token=${token.token}&id=${airline._id}`;
-    await sendEmail(airline.email, "Verify Email", message);
+    await sendEmail(airline.email, "Forgot Password", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -269,7 +269,7 @@ export const airlineResetPassword = async (req, res, next) => {
       { new: true }
     );
 
-    await sendEmail(airline.email, "Verify Email", "password changed successfully!");
+    await sendEmail(airline.email, "Success", "password changed successfully!");
 
     await token.deleteOne();
     res.status(200).send("password changed successfully!");
@@ -398,7 +398,7 @@ export const hotelPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.HOTEL_URL}/passwordReset?token=${token.token}&id=${hotel._id}`;
-    await sendEmail(hotel.email, "Verify Email", message);
+    await sendEmail(hotel.email, "Forgot Password", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -435,7 +435,7 @@ export const hotelResetPassword = async (req, res, next) => {
       { new: true }
     );
 
-    await sendEmail(hotel.email, "Verify Email", "password changed successfully!");
+    await sendEmail(hotel.email, "Success", "password changed successfully!");
 
     await token.deleteOne();
     res.status(200).send("password changed successfully!");
@@ -566,7 +566,7 @@ export const userPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.CLIENT_URL}/passwordReset?token=${token.token}&id=${user._id}`;
-    await sendEmail(user.email, "Verify Email", message);
+    await sendEmail(user.email, "Forgot Password", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -603,7 +603,7 @@ export const userResetPassword = async (req, res, next) => {
       { new: true }
     );
 
-    await sendEmail(user.email, "Verify Email", "password changed successfully!");
+    await sendEmail(user.email, "Success", "password changed successfully!");
 
     await token.deleteOne();
     res.status(200).send("password changed successfully!");
