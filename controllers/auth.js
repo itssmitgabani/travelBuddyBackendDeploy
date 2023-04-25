@@ -71,11 +71,7 @@ export const adminPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.ADMIN_URL}/passwordReset?token=${token.token}&id=${admin._id}`;
-<<<<<<< HEAD
-    await sendEmail(admin.email, "Forgot Password", message);
-=======
-    await sendEmail(admin.email, "Change Password", message);
->>>>>>> c535b40 (up)
+    await sendEmail(admin.email, "Verify Email", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -236,11 +232,7 @@ export const airlinePassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.AIRLINE_URL}/passwordReset?token=${token.token}&id=${airline._id}`;
-<<<<<<< HEAD
-    await sendEmail(airline.email, "Forgot Password", message);
-=======
-    await sendEmail(airline.email, "Change Password", message);
->>>>>>> c535b40 (up)
+    await sendEmail(airline.email, "Verify Email", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -406,11 +398,7 @@ export const hotelPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.HOTEL_URL}/passwordReset?token=${token.token}&id=${hotel._id}`;
-<<<<<<< HEAD
-    await sendEmail(hotel.email, "Forgot Password", message);
-=======
-    await sendEmail(hotel.email, "Change Password", message);
->>>>>>> c535b40 (up)
+    await sendEmail(hotel.email, "Verify Email", message);
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -578,11 +566,7 @@ export const userPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.CLIENT_URL}/passwordReset?token=${token.token}&id=${user._id}`;
-<<<<<<< HEAD
-    await sendEmail(user.email, "Forgot Password", message);
-=======
-    await sendEmail(user.email, "Change Password", message);
->>>>>>> c535b40 (up)
+    await sendEmail(user.email, "Verify Email", message);
     
     res.status(200).send("link sent to your E-mail.");
 
