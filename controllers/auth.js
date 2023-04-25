@@ -71,7 +71,11 @@ export const adminPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.ADMIN_URL}/passwordReset?token=${token.token}&id=${admin._id}`;
+<<<<<<< HEAD
     await sendEmail(admin.email, "Forgot Password", message);
+=======
+    await sendEmail(admin.email, "Change Password", message);
+>>>>>>> c535b40 (up)
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -232,7 +236,11 @@ export const airlinePassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.AIRLINE_URL}/passwordReset?token=${token.token}&id=${airline._id}`;
+<<<<<<< HEAD
     await sendEmail(airline.email, "Forgot Password", message);
+=======
+    await sendEmail(airline.email, "Change Password", message);
+>>>>>>> c535b40 (up)
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -263,7 +271,7 @@ export const airlineResetPassword = async (req, res, next) => {
     const hash = bcrypt.hashSync(req.body.password, salt);
 
     
-    await User.updateOne(
+    await Airline.updateOne(
       { _id: airline._id },
       { $set: { password: hash } },
       { new: true }
@@ -398,7 +406,11 @@ export const hotelPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.HOTEL_URL}/passwordReset?token=${token.token}&id=${hotel._id}`;
+<<<<<<< HEAD
     await sendEmail(hotel.email, "Forgot Password", message);
+=======
+    await sendEmail(hotel.email, "Change Password", message);
+>>>>>>> c535b40 (up)
     
     res.status(200).send("link sent to your E-mail.");
 
@@ -429,7 +441,7 @@ export const hotelResetPassword = async (req, res, next) => {
     const hash = bcrypt.hashSync(req.body.password, salt);
 
     
-    await User.updateOne(
+    await Hotel.updateOne(
       { _id: hotel._id },
       { $set: { password: hash } },
       { new: true }
@@ -537,7 +549,7 @@ export const userLogin = async (req, res, next) => {
         return next(createError(400, "please check your email and verify your account"));
       }
       if(!user.status){
-        return next(createError(400, "Aorry your account is De-Activated pleae contact admin!"));
+        return next(createError(400, "Sorry your account is De-Activated pleae contact admin!"));
       }
     const token = jwt.sign(
       { id: user._id},
@@ -566,7 +578,11 @@ export const userPassword = async (req, res, next) => {
       token: crypto.randomBytes(32).toString("hex"),
     }).save();
     const message = `${process.env.CLIENT_URL}/passwordReset?token=${token.token}&id=${user._id}`;
+<<<<<<< HEAD
     await sendEmail(user.email, "Forgot Password", message);
+=======
+    await sendEmail(user.email, "Change Password", message);
+>>>>>>> c535b40 (up)
     
     res.status(200).send("link sent to your E-mail.");
 
